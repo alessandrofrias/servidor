@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Angular</title>
+<link rel="stylesheet" type="text/css" href="estilo.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+<body>
+	<div ng-controller="indexController">
+		<form class="form-horizontal" ng-submit="salvarProduto()">
+			<div class="form-group">
+				<div class="tituloProduto">Cadastro de Produtos</div>
+				<input type="text" class="entradaEstoque" name="cCodigo" placeholder="Codigo" ng-model="produto.codigo" required>
+				<input type="text" class="entradaEstoque" name="cNome" placeholder="Nome"  ng-model="produto.nome">
+				<input type="number" class="entradaEstoque" name="cPreco" placeholder="Preco"  ng-model="produto.preco">
+				<input type="number" class="entradaEstoque" name="cEstoque" placeholder="Estoque"  ng-model="produto.estoque">
+			</div>
+			<button type="submit" id="salvar">Salvar</button>
+		</form>
+		<div class="col-sm-offset-2 col-sm-8">
+			<h2 class="text-center">Produtos Cadastrados</h2>
+			<table class="table text-center">
+				<thead>
+					<tr>
+						<td>Codigo</td>
+						<td>Nome</td>
+						<td>Preco</td>
+						<td>Estoque</td>
+					</tr>
+				</thead>
+				<tbody >
+					<tr ng-repeat="auxiliar in produtos" class="hidden-sm bg-info">
+						<td class="campos">{{auxiliar.codigo}}</td>
+						<td class="campos">{{auxiliar.nome}}</td>
+						<td class="campos">{{auxiliar.preco}}</td>
+						<td class="campos">{{auxiliar.estoque}}</td>
+						<td>
+						   <button class="btnTable btn btn-primary" ng-show="!botaoEntrada" ng-click="botaoEntrada = true" type="submit" >Comprar</button>
+						   <button class="btnTable btn btn-primary" ng-hide="!botaoEntrada" ng-click="comprar(auxiliar,quantidade)" type="submit" >Comprar</button>
+						   <input type="number" id="EntradaProduto" min="0" ng-hide="!botaoEntrada" name="cNovoEstoque" ng-model="quantidade">
+						</td>
+						<td>
+						  <button class="btnTable btn btn-primary" ng-show="!botaoSaida" ng-click="botaoSaida = true" type="submit" >Vender</button>
+						  <button class="btnTable btn btn-primary" ng-hide="!botaoSaida" ng-click="vender(auxiliar,quantidadeVenda)" type="submit" >Vender</button>
+						  <input type="number" id="EntradaProduto" min="0" ng-hide="!botaoSaida" name="cVelhoEstoque" ng-model="quantidadeVenda">
+						</td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+

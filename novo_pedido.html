@@ -1,0 +1,87 @@
+<div class="container-fluid">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li>
+				<a href="index.html">Cadastro</a>
+			</li>
+			<li class="active">Manter Cor</li>
+		</ol>
+	</div>
+	<div class="row">
+		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+			<h2><span class="label">Numero</span></h2>
+			<input type="number" name="numero_pedido" id="inputNumero_pedido" class="form-control" value="" min="{5"} max="" step="" required="required" title="">
+		</div>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-4">
+			<h2><span class="label">Emissão</span></h2>
+			<input type="text" name="emissao_pedido" id="inputEmissao_pedido" class="form-control" value="" required="required" pattern="" title="">
+		</div>
+		<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
+			<h2><span class="label">Total</span></h2>
+			<input type="text" name="total_pedido" id="inputTotal_pedido" class="form-control" value="" required="required" pattern="" title="">
+		</div>
+	</div>
+	<div class="row">
+		<hr></hr>
+		<hr></hr>
+	</div>
+	<div class="row">
+	 	<form class="form-horizontal" ng-submit="salvarProduto()">
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<div class="input-group" style="margin-top: 63px;">
+				  <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+				  	<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"  ng-model="pedido.produto">
+				</div>
+			</div>
+
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<h2><span class="label">Quantidade</span></h2>			
+				<input type="text" name="quantidade" id="inputQuantidade" class="form-control" value="" required="required" ng-model="pedido.quantidade">
+			</div>
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<h2><span class="label">Preço</span></h2>			
+				<input type="text" name="preco" id="inputQuantidade" class="form-control" value="" required="required" ng-model="pedido.preco">
+			</div>
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<h2><span class="label">Desconto</span></h2>			
+				<input type="text" name="desconto" id="inputQuantidade" class="form-control" value="" required="required" ng-model="pedido.desconto">
+			</div>
+			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<h2><span class="label">Total</span></h2>			
+				<input type="text" name="total" id="inputQuantidade" class="form-control" value="" required="required" ng-model="pedido.total">
+			</div>
+		<button style="margin-top: 63px;" type="submit" class="btn btn-primary">Incluir</button>
+		</form>	
+	</div>
+	<div class="row">
+		<hr></hr>
+	</div>
+	<div class="row">
+		<table class="table text-center">
+			<thead>
+				<tr style="font-size: 20px;" >
+					<th>Produto</th>
+					<th>Quantidade</th>
+					<th>Preço</th>
+					<th>Desconto</th>
+					<th>Total</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="auxiliar in pedidos">
+					<td>{{auxiliar.produto}}</td>
+					<td>{{auxiliar.quantidade}}</td>
+					<td>{{auxiliar.preco}}</td>
+					<td>{{auxiliar.desconto}}</td>
+					<td>{{auxiliar.total}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<button type="button" class="btn btn-sucess">Salvar</button>
+		<button type="button" class="btn btn-warning">Cancelar</button>
+	</div>
+
+</div>
