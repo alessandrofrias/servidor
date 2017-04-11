@@ -15,6 +15,11 @@ var app = angular.module('app',["ngRoute"]);
         controller : "produtoController",
         controllerAs : "produtoController"
     })
+    .when("/editarproduto/:codigo", {
+        templateUrl : "editar_produto.html",
+        controller : "produtoController",
+        controllerAs : "produtoController"
+    })
     .when("/novopedido", {
         templateUrl : "novo_pedido.html",
         controller : "pedidoController",
